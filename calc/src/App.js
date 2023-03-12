@@ -1,5 +1,11 @@
+import Markup from "./components/Markup";
+
 function App() {
-  return <div className="App">Hello World!</div>;
+  return (
+    <>
+      <Markup />
+    </>
+  );
 }
 
 export default App;
