@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 // import PropTypes from "prop-types";
+const ops = ["/", "*", "+", "-", "."];
 
 const Markup = (props) => {
   const [calc, setCalc] = useState("");
@@ -17,7 +18,7 @@ const Markup = (props) => {
     return digits;
   };
   const calculate = () => {
-    setCalc(eval(calc).toString());
+    setCalc(this.eval(calc).toString());
   };
   const deleteLast = () => {
     if (calc === "") {
@@ -26,7 +27,6 @@ const Markup = (props) => {
     const value = calc.slice(0, -1);
     setCalc(value);
   };
-  const ops = ["/", "*", "+", "-", "."];
 
   const updateCalc = (value) => {
     if (
@@ -38,7 +38,7 @@ const Markup = (props) => {
     setCalc(calc + value);
 
     if (!ops.includes(value)) {
-      setResult(eval(calc + value).toString());
+      setResult(this.eval(calc + value).toString());
     }
   };
   return (
